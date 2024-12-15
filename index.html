@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/assets/SC-icon.png">
+    <title>SmartCasita</title>
+</head>
+
+<body>
+    <div id="login-form" class="form-container">
+        <h1 class="form-title">Smart Casita</h1>
+        <img class="sc-icon" src="/assets/SC-icon.png" alt="">
+        <h2 class="form-subtitle">Iniciar Sesión</h2>
+        <form id="login" class="form">
+            <div class="error-message" id="login-error-message"></div>
+            <input type="email" id="login-email" class="form-input" placeholder="Correo electrónico" required>
+            <input type="password" id="login-password" class="form-input" placeholder="Contraseña" required>
+            <button type="submit" id="login-btn" class="form-button">Iniciar Sesión</button>
+            <p class="form-footer">¿No tienes una cuenta? <a href="#" id="register-link"
+                    class="form-link">Regístrate</a></p>
+        </form>
+    </div>
+    <div id="register-form" class="form-container hidden">
+        <h1 class="form-title">Smart Casita</h1>
+        <img class="sc-icon" src="/assets/SC-icon.png" alt="">
+        <h2 class="form-subtitle">Registrarse</h2>
+        <form id="register" class="form">
+            <div class="error-message" id="error-message"></div>
+            <input type="email" id="email" class="form-input" placeholder="Correo electrónico" required>
+            <input type="password" id="password" class="form-input" placeholder="Contraseña" required>
+            <button type="submit" id="signup-btn" class="form-button">Registrarse</button>
+            <p class="form-footer">¿Ya tienes una cuenta? <a href="#" id="showLogin" class="form-link">Inicia Sesión</a>
+            </p>
+        </form>
+    </div>
+
+    <div id="aplication-view">
+        <h1>Smart Casita</h1>
+        <div class="tabs">
+            <button class="tab-button active" data-tab="dashboard">
+                <img class="icon-menu" src="/assets/dashboard.svg" alt="">
+                Dashboard
+            </button>
+            <button class="tab-button" data-tab="history">
+                <img class="icon-menu" src="/assets/historial.svg" alt="">
+                Historial
+            </button>
+            <button class="tab-button" data-tab="camera">
+                <img class="icon-menu" src="/assets/camera.svg" alt="">
+                Cámara
+            </button>
+            <button class="tab-button" data-tab="settings">
+                <img class="icon-menu" src="/assets/ajustes.svg" alt="">
+                Configuración
+            </button>
+        </div>
+        <div id="dashboard" class="tab-content active">
+            <div class="card">
+                <h2>Estado de Sensores</h2>
+                <p>Monitoreo en tiempo real</p>
+                <div class="sensor-status">
+                    <div class="sensor">
+                        <img src="/assets/movimiento.svg" alt="">
+                        <span class="movimiento">Movimiento</span>
+                        <span class="badge green" id="movimiento-badge">Sin movimiento</span>
+                    </div>
+                    <div class="sensor">
+                        <img src="/assets/ambiente.svg" alt="">
+                        <span class="incendio">Temperatura ambiental</span>
+                        <span class="badge green" id="incendio-badge">Normal</span>
+                    </div>
+                    <div class="sensor">
+                        <img src="/assets/lluvia.svg" alt="">
+                        <span class="lluvia">Lluvia</span>
+                        <span class="badge blue" id="lluvia-badge">Sin lluvia</span>
+                    </div>
+                    <div class="sensor">
+                        <img src="/assets/fingerprint.svg" alt="">
+                        <span class="rfid">RFID</span>
+                        <span class="badge green" id="rfid-badge">Acceso permitido</span>
+                    </div>
+                </div>
+                <p class="activacion-manual">Activación manual</p>
+                <div class="sensor-status">
+                    <div class="sensor">
+                        <img src="/assets/puerta.svg" alt="">
+                        <span class="abrir-puerta">Abrir la puerta</span>
+                        <label class="switch">
+                            <input type="checkbox" id="puerta-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="sensor">
+                        <img src="/assets/foco.svg" alt="">
+                        <span class="encender-luz">Encender la luz</span>
+                        <label class="switch">
+                            <input type="checkbox" id="luz-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="sensor">
+                        <img src="/assets/altavoz.svg" alt="">
+                        <span class="activar-bocina">Activar la bocina</span>
+                        <label class="switch">
+                            <input type="checkbox" id="activar-bocina-switch">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="history" class="tab-content">
+            <div class="card">
+                <h2>Historial de Eventos</h2>
+                <p>Registro de actividades recientes</p>
+                <div class="event-list" id="event-list">
+                    <div class="event">
+                        <h3>Evento</h3>
+                        <p id="timestamp-1">Timestamp: 2024-12-13 14:41:40</p>
+                        <p id="acceso-1">Acceso permitido a la puerta.</p>
+                        <p id="lluvia-1">Sin lluvia.</p>
+                        <p id="luz-1">La luz está apagada.</p>
+                    </div>
+                    <div class="event">
+                        <h3>Evento</h3>
+                        <p id="timestamp-2">Timestamp: 2024-12-13 14:30:15</p>
+                        <p id="acceso-2">Acceso denegado a la puerta.</p>
+                        <p id="lluvia-2">Lluvia detectada.</p>
+                        <p id="luz-2">La luz está encendida.</p>
+                    </div>
+                    <!-- Más eventos se agregarían aquí -->
+                </div>
+            </div>
+        </div>
+
+        <div id="settings" class="tab-content">
+            <div class="card">
+                <h2>Información del Usuario</h2>
+                <div class="user-info">
+                    <img src="/assets/user.png" alt="Usuario" class="user-icon">
+                    <span id="user-email">Correo del usuario</span>
+                    <button id="logout-btn" class="button">Cerrar sesión</button>
+                </div>
+            </div>
+        </div>
+        <div id="camera" class="tab-content">
+            <h2>Visión en vivo de la cámara</h2>
+            <p>Esta es la visión en vivo de la cámara de seguridad.</p>
+            <iframe src="http://192.168.26.160:8080/browserfs.html" frameborder="0" width="100%"></iframe>
+        </div>
+    </div>
+    <script src="/js/main.js"></script>
+    <script type="module" src="/js/firebase.js"></script>
+    <script type="module" src="/js/acceso.js"></script>
+</body>
+
+</html>
