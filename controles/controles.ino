@@ -15,7 +15,7 @@ FirebaseConfig firebaseConfig;
 FirebaseAuth firebaseAuth;
 
 const char* FIREBASE_HOST = "https://smartcasitadb-default-rtdb.firebaseio.com/";  
-const char* FIREBASE_AUTH = "nCgboJhKM4F311uJqt4kUmtLZ39SYJedbBLwLtQ3"; 
+const char* FIREBASE_AUTH = "firebase_auth"; 
 
 const int waterPin = 36;
 const int pirPin = 15;
